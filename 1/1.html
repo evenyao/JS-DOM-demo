@@ -1,0 +1,27 @@
+<!-- html -->
+<ul class="ct">
+  <li data-img="1.png">鼠标放置查看图片1</li>
+  <li data-img="2.png">鼠标放置查看图片2</li>
+  <li data-img="3.png">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+
+<!-- js -->
+<script>
+  var liClass = document.querySelectorAll('li')  //类数组，下面做循环使用
+  var divClass = document.querySelectorAll('div')  //为类数组，在下面取divClass[0]
+
+  for(var i = 0; i < liClass.length; i++ ){
+    liClass[i].addEventListener("mouseover",function(){
+      imgClass = document.createElement('img')
+      imgClass.src = this.getAttribute('data-img')  //this就是liClass[i]
+      divClass[0].appendChild(imgClass)  //divClass只有是一个类数组，且只有一个值，所以取divClass[0]
+    })
+
+    liClass[i].addEventListener("mouseout",function(){
+      imgClass = document.createElement('img')
+      imgClass.src = this.getAttribute('data-img')  //this就是liClass[i]
+      divClass[0].innerHTML = ''  //同上
+    })
+  }
+</script>

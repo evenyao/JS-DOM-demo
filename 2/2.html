@@ -1,0 +1,36 @@
+<!-- html -->
+<ul class="ct">
+  <li>欢 迎</li>
+  <li>Hello</li>
+  <li>World</li>
+</ul>
+<input class="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+
+<!-- js -->
+<script>
+  var ctClass = document.querySelector('.ct')
+  var iptContent = document.querySelector('.ipt-add-content')
+  var addStart = document.querySelector('#btn-add-start')
+  var addEnd = document.querySelector('#btn-add-end')
+
+  //使用click事件，鼠标释放的时候进行DOM操作
+
+  addStart.addEventListener('click',function(){
+    if(iptContent.value!==''){
+      var liClass = document.createElement('li')
+      liClass.innerHTML = iptContent.value
+      ctClass.insertBefore(liClass,ctClass.children[0])  //在ctClass下的第一个子元素之前添加，使用insertBefore
+    }
+  })
+
+  addEnd.addEventListener('click',function(){
+    if(iptContent.value!==''){
+      var liClass = document.createElement('li')
+      liClass.innerHTML = iptContent.value
+      ctClass.appendChild(liClass)  //在ctClass下紧接着末尾添加，使用appendChild
+    }
+  })
+
+</script>

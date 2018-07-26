@@ -1,0 +1,17 @@
+<!-- html -->
+<p  style="font-size: 12px; color:grey;">查看此demo效果请打开console调试台</p>
+<ul class="ct">
+  <li>Hello</li>
+  <li>World</li>
+  <li>i am evenyao</li>
+</ul>
+
+<!-- js -->
+<script>
+  var liClass = document.querySelectorAll('li')
+    for(var i = 0; i < liClass.length; i++ ){
+      liClass[i].addEventListener('click',function(){
+        console.log(this.innerText)
+      })
+    }
+</script>
