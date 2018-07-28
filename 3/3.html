@@ -1,17 +1,28 @@
 <!-- html -->
 <p  style="font-size: 12px; color:grey;">查看此demo效果请打开console调试台</p>
 <ul class="ct">
+  <li>欢 迎</li>
   <li>Hello</li>
   <li>World</li>
-  <li>i am evenyao</li>
 </ul>
 
 <!-- js -->
 <script>
+
+  var ctClass = document.querySelector('.ct')
   var liClass = document.querySelectorAll('li')
-    for(var i = 0; i < liClass.length; i++ ){
-      liClass[i].addEventListener('click',function(){
-        console.log(this.innerText)
-      })
-    }
+
+ //普通思路 进行for遍历
+  // for(var i = 0; i < liClass.length; i++ ){
+  //   liClass[i].addEventListener('click',function(){
+  //     console.log(this.innerText)
+  //   })
+  // }
+
+  //事件代理思路 使用e.target，把事件加在他的父元素标签之上，这样的好处是子元素通过冒泡都能得到该事件，包括以后新增的
+  //如果不想让所有子元素获得该事件。就用classList.contains再做一个class的判断筛选，但子元素必须都拥有class类
+  ctClass.addEventListener('click',function(e){
+      console.log(e.target.innerText)
+  })s
+
 </script>

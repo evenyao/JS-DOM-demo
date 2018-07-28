@@ -15,7 +15,12 @@
   var addStart = document.querySelector('#btn-add-start')
   var addEnd = document.querySelector('#btn-add-end')
 
-  //使用click事件，鼠标释放的时候进行DOM操作
+  //使用事件代理思想，在父级ul标签上进行事件绑定
+  //这样做的好处是，下面使用add按钮生成的新的li也可以进行分配到事件
+  ctClass.addEventListener('click',function(e){
+    console.log(e.target.innerText)
+  })
+
 
   addStart.addEventListener('click',function(){
     if(iptContent.value!==''){
