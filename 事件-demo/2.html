@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .container,
+    .box,
+    .target {
+      padding: 10px;
+      border: 1px solid;
+    }
+  </style>
+</head>
+<body>
+  <p  style="font-size: 12px; color:grey;">查看此demo效果请打开console调试台 并配合js源码食用 </p>
+  <div class="container">container
+    <div class="box">box
+      <div class="target">target
+      </div>
+    </div>
+  </div>
+  <a href="https://www.baidu.com">链接 点我</a>
+</body>
+</html>
+<script>
+  var container = document.querySelector('.container')
+  var box = document.querySelector('.box')
+  var target = document.querySelector('.target')
+
+  //加参数true，为捕获
+  container.addEventListener('click',function(e){
+    console.log('container 捕获 click...')
+  },true)
+  box.addEventListener('click',function(e){
+    e.stopPropagation()  //使用stopPropagation在捕获阶段就取消事件进一步捕获
+    console.log('box 捕获 click...')
+  },true)
+  target.addEventListener('click',function(e){
+    console.log('target 捕获 click...')
+  },true)
+
+  //加参数为false，为冒泡
+  container.addEventListener('click',function(e){
+    console.log('container 冒泡 click...')
+  },false)
+  box.addEventListener('click',function(e){
+    console.log('box 冒泡 click...')
+  },false)
+  target.addEventListener('click',function(e){
+    console.log('target 冒泡 click...')
+  },false)
+
+
+  //取消事件默认行为
+  var newA = document.querySelector('a')
+
+  newA.addEventListener('click',function(e){
+    e.preventDefault()  //使用preventDefault取消事件默认行为，在这里即取消了a链接的默认的点击跳转行为
+    console.log(this.href)  //在控制台console输出href地址
+    if(/https:\/\/www.baidu.com/.test(this.href)){   //用正则匹配，如果地址newA.href地址和https://www.baidu.com匹配为true，则输出yes! 并进行跳转
+      console.log('yes!')
+      location.href = this.href  //跳转链接为此正则匹配为true的链接
+    }
+  })
+</script>

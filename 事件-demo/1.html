@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .container,
+    .box,
+    .target {
+      padding: 10px;
+      border: 1px solid;
+    }
+  </style>
+</head>
+<body>
+  <p  style="font-size: 12px; color:grey;">查看此demo效果请打开console调试台 并配合js源码食用 </p>
+  <div class="container">container
+    <div class="box">box
+      <div class="target">target
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  var container = document.querySelector('.container')
+  var box = document.querySelector('.box')
+  var target = document.querySelector('.target')
+
+  //加参数true，为捕获
+  container.addEventListener('click',function(){
+    console.log('container 捕获 click...')
+  },true)
+  box.addEventListener('click',function(){
+    console.log('box 捕获 click...')
+  },true)
+  target.addEventListener('click',function(){
+    console.log('target 捕获 click...')
+  },true)
+
+  //默认不带参数，为冒泡
+  container.addEventListener('click',function(){
+    console.log('container 冒泡 click...')
+  })
+  box.addEventListener('click',function(){
+    console.log('box 冒泡 click...')
+  })
+  target.addEventListener('click',function(){
+    console.log('target 冒泡 click...')
+  })
+</script>
