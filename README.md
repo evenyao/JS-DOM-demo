@@ -1,5 +1,4 @@
 # JS-DOM-demo
-## 这是一个关于使用原生JavaScript对DOM/Css进行操作的Demo
 ## 这是一个关于使用原生JavaScript对DOM/Css进行操作 和 针对JS事件模型进行模拟 的Demo
 ## 包含内容
  ### JS 操作DOM - Demo 
