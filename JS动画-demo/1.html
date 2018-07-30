@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小球JS动画</title>
+  <style>
+    #ball {
+      position: absolute;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background: lightblue;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+  <script>
+    var offsetX = 500
+    var moveOffset = 0
+    var step = 5
+
+    function move(){
+      if(moveOffset < offsetX){
+        ball.style.left = parseInt(getComputedStyle(ball).left) + step + 'px'
+        moveOffset = moveOffset + step
+      }
+      // setTimeout(move, 5)  //不推荐使用setTimeout
+      requestAnimationFrame(move)   //推荐使用<requestAnimationFrame></requestAnimationFrame>
+    }
+    move()
+  </script>
+</body>
+</html>
