@@ -13,5 +13,5 @@
  - 模拟：自定义事件
 
  ### JS 动画 - Demo
- - 动画：小球移动
-   使用 setTimeout() [不推荐] 或 requestAnimationFrame() [推荐]  
+ - 动画：小球移动<br>
+   使用 requestAnimationFrame() 方法
