@@ -19,4 +19,5 @@
 ### Tab 效果 - Demo
  - 使用 原生JS 实现 Tab 效果
  - 使用 jQuery 实现 Tab 效果
- 详情介绍：
+
+ 详情介绍：[README.md](https://github.com/evenyao/JS-DOM-demo/tree/master/Tab%E6%95%88%E6%9E%9C-demo)
